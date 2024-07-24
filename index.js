@@ -38,12 +38,13 @@ function addGamesToPage(games) {
         // about each game
         // TIP: if your images are not displaying, make sure there is space
         // between the end of the src attribute and the end of the tag ("/>")
-            newElement.innerHTML = `${games[i].name}: \n${games[i].description}`
             var newImg = document.createElement('img');
             newImg.classList.add('game-img');
             newImg.src = games[i].img
-            newElement.appendChild(newImg);
+            newElement.innerHTML = "<br />" + "<br />"  + `${games[i].name}`.bold() + "<br />" + "<br />" + `${games[i].description}` + "<br />" + "<br />"  + `pledged: $${games[i].pledged.toLocaleString('en-US')}`.small()
+            newElement.prepend(newImg);
             // append the game to the games-container
+    
             gamesContainer.appendChild(newElement);
         }
 
